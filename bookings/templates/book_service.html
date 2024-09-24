@@ -1,0 +1,163 @@
+<!-- book_service.html -->
+{% extends 'base.html' %} {% block content %}
+<style>
+  .main-body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+<div class="main-body">
+  <div class="card">
+    <div class="card-body">
+      {% if error %}
+      <div class="alert alert-danger" role="alert">{{ error }}</div>
+      {% else %}
+      <h3>{{ service.name }}</h3>
+      <p><strong>Price:</strong> Rs. {{ service.price }}</p>
+      <form method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="wrapper">
+          <header>
+            <p class="current-date"></p>
+            <div class="icons">
+              <span id="prev" class="material-symbols-rounded"
+                >chevron_left</span
+              >
+              <span id="next" class="material-symbols-rounded"
+                >chevron_right</span
+              >
+            </div>
+          </header>
+          <div class="calendar">
+            <ul class="weeks">
+              <li>Sun</li>
+              <li>Mon</li>
+              <li>Tue</li>
+              <li>Wed</li>
+              <li>Thu</li>
+              <li>Fri</li>
+              <li>Sat</li>
+            </ul>
+            <ul class="days"></ul>
+          </div>
+        </div>
+        <div class="form-group">{{ form.booking_date }}</div>
+        <button type="submit" class="btn btn-primary">Pay via Esewa</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  // Sample JavaScript to handle the calendar and date selection
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentDate = document.querySelector(".current-date");
+    const daysTag = document.querySelector(".days");
+    const prevNextIcon = document.querySelectorAll(".icons span");
+    const dateInput = document.querySelector("[name='booking_date']");
+
+    // Getting new date, current year and month
+    let date = new Date(),
+      currYear = date.getFullYear(),
+      currMonth = date.getMonth();
+
+    // Array of month names
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    // Function to render the calendar
+    const renderCalendar = () => {
+      let firstDayOfMonth = new Date(currYear, currMonth, 1).getDay(), // Getting first day of month
+        lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate(), // Getting last date of month
+        lastDayOfMonth = new Date(
+          currYear,
+          currMonth,
+          lastDateOfMonth
+        ).getDay(), // Getting last day of month
+        lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate(); // Getting last date of previous month
+
+      let liTag = "";
+
+      for (let i = firstDayOfMonth; i > 0; i--) {
+        // Creating li of previous month last days
+        liTag += `<li class="inactive">${lastDateOfLastMonth - i + 1}</li>`;
+      }
+
+      for (let i = 1; i <= lastDateOfMonth; i++) {
+        // Creating li of all days of current month
+        let isToday =
+          i === date.getDate() &&
+          currMonth === new Date().getMonth() &&
+          currYear === new Date().getFullYear()
+            ? "active"
+            : "";
+        liTag += `<li class="${isToday}">${i}</li>`;
+      }
+
+      for (let i = lastDayOfMonth; i < 6; i++) {
+        // Creating li of next month first days
+        liTag += `<li class="inactive">${i - lastDayOfMonth + 1}</li>`;
+      }
+
+      currentDate.innerText = `${months[currMonth]} ${currYear}`;
+      daysTag.innerHTML = liTag;
+
+      // Adding click event only to clickable (non-inactive) li elements
+      const days = document.querySelectorAll(".days li:not(.inactive)");
+      days.forEach((day) => {
+        day.addEventListener("click", () => {
+          const selectedDay = parseInt(day.innerText, 10);
+          const selectedDate = new Date(currYear, currMonth, selectedDay);
+
+          // Format date as mm/dd/yyyy
+          const formattedDate =
+            ("0" + (selectedDate.getMonth() + 1)).slice(-2) +
+            "/" +
+            ("0" + selectedDate.getDate()).slice(-2) +
+            "/" +
+            selectedDate.getFullYear();
+
+          dateInput.value = formattedDate; // mm/dd/yyyy format
+        });
+      });
+    };
+
+    renderCalendar();
+
+    prevNextIcon.forEach((icon) => {
+      // Getting prev and next icons
+      icon.addEventListener("click", () => {
+        // Adding click event on icons
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+        if (currMonth < 0 || currMonth > 11) {
+          // If month is less than 0 or greater than 11
+          date = new Date(currYear, currMonth);
+          currYear = date.getFullYear();
+          currMonth = date.getMonth();
+        } else {
+          date = new Date(); // Pass the current date as date value
+        }
+        renderCalendar();
+      });
+    });
+  });
+</script>
+
+{% endblock %}
