@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from bookings.models import Service as serv
 from bookings.models import Categories as cats
+from bookings.models import SliderImage as Slider
 
 def homepage(request):
     services = serv.objects.all()
-    return render(request, 'index.html', {'services': services})
+    slider = Slider.objects.all()
+    return render(request, 'index.html', {'services': services, 'slider': slider})
 
 def shoplist(request):
     return render(request, 'shop-listing.html')

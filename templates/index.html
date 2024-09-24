@@ -175,15 +175,11 @@ Bootstrap 5 HTML CSS Template
             <div class="text3">for your space</div>
           </div>
           <div class="list">
+            {% for image in slider %}
             <div class="item">
-              <img src="{% static 'Images/coolCar.jpg' %}" alt="" />
+              <img src="{{image.image.url}}" alt="{{image.image.title}}" />
             </div>
-            <div class="item">
-              <img src="{% static 'Images/marathon.jpg' %}" alt="" />
-            </div>
-            <div class="item">
-              <img src="{% static 'Images/sunset.jpg' %}" alt="" />
-            </div>
+            {% endfor %}
           </div>
           <div class="buttons">
             <button id="prev"></button>

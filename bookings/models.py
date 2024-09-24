@@ -112,3 +112,11 @@ class Payment(models.Model):
 
     def _str_(self):
         return f"Payment {self.id} for Booking {self.booking.id}"
+    
+class SliderImage(models.Model):
+    title = models.CharField(max_length=100, blank=True, null=True)
+    image = models.ImageField(upload_to='static/herosection_slider_images/')
+    is_active = models.BooleanField(default=True)
+    
+    def __str__(self):
+        return self.title if self.title else f"Slider Image {self.pk}"
