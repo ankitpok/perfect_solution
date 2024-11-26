@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #e8f4f8;
+    border: 1px solid #007acc;
+    padding: 20px 40px 20px 20px;
+    width: 90%;
+    /* Changed to a percentage for responsiveness */
+    max-width: 400px;
+    /* Maximum width */
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    font-size: 1.6em;
+    color: #007acc;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group label {
+    color: #495057;
+    font-weight: bold;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    cursor: pointer;
+    color: #007acc;
+    font-size: 1.2em;
+}
+
+.esewa-btn {
+    display: block;
+    width: 100%;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.esewa-btn:hover {
+    background-color: #218838;
+}
+
+/* Calendar styles */
+
+
+.wrapper {
+    width: 90%;
+    /* Changed to percentage */
+    max-width: 450px;
+    /* Maximum width */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    position: absolute;
+    /* Change to absolute to avoid pushing form */
+    top: 50%;
+    /* Adjust as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 1000;
+}
+
+.wrapper header {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+header .icons {
+    display: flex;
+}
+
+header .icons span {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+}
+
+.icons span:last-child {
+    margin-right: -10px;
+}
+
+header .icons span:hover {
+    background: #f2f2f2;
+}
+
+header .current-date {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+.calendar {
+    padding: 20px;
+}
+
+.calendar ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+}
+
+.calendar .days {
+    margin-bottom: 20px;
+}
+
+.calendar li {
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+    cursor: default;
+}
+
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+}
+
+.days li.inactive {
+    color: #aaa;
+}
+
+.days li.active {
+    color: #fff;
+}
+
+.days li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+    background: #9b59b6;
+}
+
+.days li:not(.active):hover::before {
+    background: #f2f2f2;
+}
+
+.days li.highlight-today::before {
+    background: red;
+    color: #fff;
+}
+
+.days li.inactive {
+    color: grey;
+    pointer-events: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+
+    .form-container,
+    .wrapper {
+        width: 95%;
+        /* Increase width for smaller screens */
+        padding: 10px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .form-header {
+        font-size: 1.4em;
+        /* Smaller header for smaller screens */
+    }
+
+    .calendar li {
+        width: calc(100% / 5);
+        /* Adjust number of days displayed per row */
+    }
+}

@@ -1,70 +1,124 @@
-.slider {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: "Poppins", sans-serif; */
+}
+
+.main {
+    height: 100vh;
     width: 100%;
-    max-width: 100%;
-    height: 700px;
-    margin: auto;
+}
+
+.wrapper,
+.slide {
     position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
     overflow: hidden;
 }
 
-.slider .list {
+.slide::before {
+    content: "";
     position: absolute;
-    width: max-content;
     height: 100%;
-    left: 0;
-    top: 0;
-    display: flex;
-    transition: 1s;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
 }
 
-.slider .list img {
-    width: 1550px;
-    max-width: 135vw;
+.slide .image {
     height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 
-.slider .buttons {
+.slide .image-data {
     position: absolute;
-    top: 45%;
-    left: 5%;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.slider .buttons button {
-    opacity: 0;
-}
-
-.slider .dots {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+    z-index: 100;
 }
 
-.slider .dots li {
-    list-style: none;
-    width: 10px;
-    height: 10px;
+.image-data span.text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.image-data h2 {
+    font-size: 45px;
+    font-weight: 600;
+    color: #fff;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #333;
+    background: #fff;
+    text-decoration: none;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+a.button:hover {
+    color: #fff;
+    background-color: #c87e4f;
+}
+
+/* swiper button css */
+.nav-btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.swiper-button-next {
+    right: 50px;
+}
+
+.swiper-button-prev {
+    left: 50px;
+}
+
+.nav-btn::before,
+.nav-btn::after {
+    font-size: 25px;
+    color: #fff;
+}
+
+.swiper-pagination-bullet {
+    opacity: 1;
+    height: 12px;
+    width: 12px;
     background-color: #fff;
-    margin: 10px;
-    border-radius: 20px;
-    transition: 0.5s;
+    visibility: hidden;
 }
 
-.slider .dots li.active {
-    width: 30px;
+.swiper-pagination-bullet-active {
+    border: 2px solid #fff;
+    background-color: #c87e4f;
 }
 
 @media screen and (max-width: 768px) {
-    .slider {
-        height: 400px;
+    .nav-btn {
+        visibility: hidden;
+    }
+
+    .swiper-pagination-bullet {
+        visibility: visible;
     }
 }

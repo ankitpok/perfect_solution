@@ -1,0 +1,8 @@
+<!-- add_review.html / edit_review.html -->
+<h2>{% if review %}Edit{% else %}Add{% endif %} Your Review</h2>
+<form method="post">
+	{% csrf_token %} {{ form.as_p }}
+	<button type="submit">
+		{% if review %}Update{% else %}Submit{% endif %} Review
+	</button>
+</form>

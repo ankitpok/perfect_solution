@@ -6,15 +6,18 @@ from django.shortcuts import get_object_or_404, render,redirect
 from django.urls import reverse
 from bookings.forms import LoginForm
 from bookings.models import Service as serv
+from bookings.models import Category as cats
 from .forms import *
 from django.contrib.auth import authenticate, login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.utils.timezone import make_aware
+from django.contrib import messages
 
 
-@login_required
-def bookservice(request, service_id):
-    service = Service.objects.get(id=service_id)
+def bookservice(request, category_id):
+    user = request.user
+    category = get_object_or_404(cats, id=category_id)
+    service = category.service  # Get the service that this category belongs to
 
     if request.method == 'POST':
         form = BookingForm(request.POST)
@@ -22,16 +25,24 @@ def bookservice(request, service_id):
             booking = form.save(commit=False)
             booking.customer = request.user
             booking.service = service
+            booking.category = category
             booking.booking_date = make_aware(datetime.strptime(form.cleaned_data['booking_date'].strftime('%Y-%m-%d'), '%Y-%m-%d'))
             booking.save()
-            return redirect('bookings:esewarequest', booking_id=booking.id)
+            return redirect('bookings:esewarequest', booking_id=booking.id) 
         else:
-            print("form not valid") 
+            if 'booking_date' in form.errors:
+                messages.error(request, 'Please select a booking date.')
+            else:
+                messages.error(request, 'Please correct the errors below.')
     else:
         form = BookingForm()
-        print(form.errors)
 
-    return render(request, 'book_service.html', {'service': service, 'form': form})
+    return render(request, 'book_service.html', {
+        'service': service, 
+        'form': form, 
+        'category': category
+    })
+
 
 def booking_confirmation(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
@@ -68,7 +79,7 @@ def logout_view(request):
 def esewarequest(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     service = booking.service
-    total_amount = 100
+    total_amount = booking.category.price
 
     success_url = f'http://127.0.0.1:8000/bookings/booking_confirmation/{booking_id}'
     #success_url = request.build_absolute_uri(reverse('bookings:esewa_response', args=[booking_id]))

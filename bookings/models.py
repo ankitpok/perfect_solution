@@ -1,9 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
-from django.db import models
-from django.utils import timezone
 from django.conf import settings
-
 
 # Create your models here.
 class UserManager(BaseUserManager):
@@ -32,8 +29,8 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
-    def _str_(self):
-        return self.email
+    def __str__(self):
+        return self.email  # Corrected the method name
 
     def has_perm(self, perm, obj=None):
         return True
@@ -45,6 +42,7 @@ class User(AbstractBaseUser):
     def is_staff(self):
         return self.is_admin
 
+
 class Service(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -55,14 +53,17 @@ class Service(models.Model):
     def __str__(self):
         return self.name
     
-class Categories(models.Model):
-    name=models.CharField(max_length=255)
+class Category(models.Model):  # Rename to Category for consistency
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='categories')
+    name = models.CharField(max_length=255)
     description = models.TextField()
+    photo = models.ImageField(upload_to='static/category_images', blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    
+    added_at = models.DateTimeField(auto_now_add=True)
+    deleted_at = models.DateTimeField(auto_now=True)
+
     def __str__(self) -> str:
-        return super().__str__()
+        return self.name
     
 
 class Booking(models.Model):
@@ -76,12 +77,13 @@ class Booking(models.Model):
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='bookings')
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='bookings')
     booking_date = models.DateField()
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='bookings', null=True)
     booking_status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Pending')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     has_paid = models.BooleanField(default=False)
 
-    def _str_(self):
+    def __str__(self):
         return f"Booking {self.id} by {self.customer.email}"
 
 class Availability(models.Model):
@@ -91,17 +93,6 @@ class Availability(models.Model):
 
     def _str_(self):
         return f"{self.service_provider.name} - {self.date}"
-
-class Review(models.Model):
-    booking = models.OneToOneField(Booking, on_delete=models.CASCADE, related_name='review')
-    rating = models.IntegerField()
-    comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def _str_(self):
-        return f"Review for Booking {self.booking.id}"
-    
 
 class Payment(models.Model):
     booking = models.OneToOneField('Booking', on_delete=models.CASCADE, related_name='payment')
@@ -120,3 +111,18 @@ class SliderImage(models.Model):
     
     def __str__(self):
         return self.title if self.title else f"Slider Image {self.pk}"
+    
+
+class Review(models.Model):
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
+    review_text = models.TextField(null=False, blank=False)
+    rating = models.FloatField(default=0.0) 
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'Review by {self.user_name} - {self.rating} stars'
+
+    # Method to round the rating to nearest 0.5
+    def rounded_rating(self):
+        return round(self.rating * 2) / 2

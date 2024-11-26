@@ -1,0 +1,170 @@
+/* Basic styling for the modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Slightly darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(50px);
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+/* Close button */
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.close-modal-btn button:hover {
+    color: #e74c3c;
+}
+
+
+/* Button styling */
+.add-review-btn {
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.add-review-btn:hover {
+    background-color: #2980b9;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.add-review-btn:active {
+    transform: scale(0.98);
+}
+
+/* Form input styling */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #3498db;
+    background-color: #f1f9ff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+/* Rating slider */
+#id_rating {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+#id_rating:hover {
+    background: #3498db;
+}
+
+#id_rating::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #3498db;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+#id_rating:active::-webkit-slider-thumb {
+    background: #2980b9;
+}
+
+/* Form Group and Labels */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .add-review-btn {
+        width: 100%;
+        padding: 14px;
+    }
+
+    .form-control {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .form-control {
+        padding: 12px;
+    }
+
+    .add-review-btn {
+        width: 100%;
+        padding: 16px;
+    }
+}

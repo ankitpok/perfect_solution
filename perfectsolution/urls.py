@@ -18,9 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from debug_toolbar.toolbar import debug_toolbar_urls
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_website.urls')),
     path('bookings/', include('bookings.urls')),
-] + debug_toolbar_urls()
+    path('accounts/', include('allauth.urls')),
+    path('home/',TemplateView.as_view(template_name='dashboard/home.html'), name='home')
+] + debug_toolbar_urls() 

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Booking, Service
+from .models import User, Booking, Service, Review
 
 class RegistrationForm(UserCreationForm):
     class Meta:
@@ -11,13 +11,6 @@ class LoginForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
 
-# forms.py
-from django import forms
-from .models import Booking
-
-# forms.py
-from django import forms
-from .models import Booking
 
 class BookingForm(forms.ModelForm):
     booking_date = forms.DateField(
@@ -30,8 +23,15 @@ class BookingForm(forms.ModelForm):
         fields = ['booking_date']
 
 
-# class ServiceForm(forms.ModelForm):
-#     class Meta:
-#         model = Service
-#         fields = ['name', 'description', 'price', 'duration', 'category', 'image']
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['user_name', 'review_text', 'rating']
+        
+    rating = forms.ChoiceField(
+        choices=[(i, str(i)) for i in range(1, 6)],  # 1 to 5 ratings
+        widget=forms.RadioSelect,
+        required=True,
+    )
+
         

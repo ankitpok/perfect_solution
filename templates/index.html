@@ -1,39 +1,50 @@
-{% load static %}
+{% load static %} {% load crispy_forms_tags %}
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="description" content="" />
-    <meta name="author" content="Tooplate" />
+		<meta name="description" content="" />
+		<meta name="author" content="Tooplate" />
 
-    <title>Moso Interior - HTML CSS Template</title>
+		<title>Moso Interior - HTML CSS Template</title>
 
-    <!-- CSS FILES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+		<!-- CSS FILES -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/bootstrap-icons.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/slider.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/homepageslider.css' %}" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'css/tooplate-moso-interior.css' %}"
-    />
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap-icons.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/slider.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/homepageslider.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/review.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/review_modal.css' %}" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!--
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
+		/>
+		<link
+			rel="stylesheet"
+			href="{% static 'css/tooplate-moso-interior.css' %}"
+		/>
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+		/>
+		<!--
 
 Tooplate 2133 Moso Interior
 
@@ -42,771 +53,683 @@ https://www.tooplate.com/view/2133-moso-interior
 Bootstrap 5 HTML CSS Template
 
 -->
-  </head>
-
-  <body>
-    <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"
-          >Perfect <span class="tooplate-red">Solu</span
-          ><span class="tooplate-green">tion</span></a
-        >
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link click-scroll" href="#section_1">home</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link click-scroll" href="#section_2">About</a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle click-scroll"
-                href="#section_3"
-                id="navbarLightDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >Shop</a
-              >
-
-              <ul
-                class="dropdown-menu dropdown-menu-light"
-                aria-labelledby="navbarLightDropdownMenuLink"
-              >
-                <li>
-                  <a class="dropdown-item" href="shop-listing.html"
-                    >Shop Listing</a
-                  >
-                </li>
-
-                <li>
-                  <a class="dropdown-item" href="shop-detail.html"
-                    >Shop Detail</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link click-scroll" href="#section_4">Reviews</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link click-scroll" href="#section_5">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <style>
-      .slider {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .text1 {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        z-index: 1000;
-        font-size: 20px;
-        color: white;
-        font-family: "League Spartan", sans-serif;
-        font-weight: bold;
-        color: #00a05d;
-      }
-      .text2 {
-        position: relative;
-        z-index: 1000;
-        font-size: 50px;
-        color: white;
-        font-family: "League Spartan", sans-serif;
-        font-weight: bold;
-      }
-      .text3 {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        z-index: 1000;
-        font-size: 50px;
-        color: white;
-        font-family: "League Spartan", sans-serif;
-        font-weight: bold;
-      }
-    </style>
-    <main>
-      <div class="banner-container">
-        <div class="slider">
-          <div class="text">
-            <div class="text1">
-              Welcome to Perfect Solution {% comment %}
-              <span
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="26"
-                  height="26"
-                  fill="red"
-                  class="bi bi-house"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"
-                  /></svg
-              ></span>
-              {% endcomment %}
-            </div>
-            <div class="text2">Decorate a beautiful interior</div>
-            <div class="text3">for your space</div>
-          </div>
-          <div class="list">
-            {% for image in slider %}
-            <div class="item">
-              <img src="{{image.image.url}}" alt="{{image.image.title}}" />
-            </div>
-            {% endfor %}
-          </div>
-          <div class="buttons">
-            <button id="prev"></button>
-            <button id="next"></button>
-          </div>
-          <ul class="dots">
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <br />
-      </div>
-      <section class="about-section section-padding" id="section_2">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-5 col-12">
-              <small class="section-small-title">Our Story</small>
-
-              <h2 class="mt-2 mb-4">
-                <span class="text-muted">Introducing</span> perfect solution
-              </h2>
-
-              <h4 class="text-muted mb-3">
-                Since 1986, We crafted interior products for better spaces
-              </h4>
-              <p>
-                Perfect sloution is a foo bar baz foo bar bazfoo bar bazfoo bar
-                bazfoo bar bazfoo bar baz
-              </p>
-            </div>
-
-            <div class="col-lg-3 col-md-5 col-5 mx-lg-auto">
-              <img
-                src="{% static 'images/sharing-design-ideas-with-family.jpg' %}"
-                class="about-image about-image-small img-fluid"
-                alt=""
-              />
-            </div>
-
-            <div class="col-lg-4 col-md-7 col-7">
-              <img
-                src="{% static 'images/living-room-interior-wall-mockup-warm-tones-with-leather-sofa-which-is-kitchen-3d-rendering.jpg' %}"
-                class="about-image img-fluid"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="featured-section section-padding">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-5 col-12">
-              <div class="custom-block featured-custom-block">
-                <h2 class="mt-2 mb-4">Opening Hours</h2>
-
-                <div class="d-flex">
-                  <i class="featured-icon bi-clock me-3"></i>
-
-                  <div>
-                    <p class="mb-2">
-                      Mon - Friday ~
-                      <strong class="d-inline"> 8:00 AM - 6:00 PM </strong>
-                    </p>
-
-                    <p class="mb-2">
-                      Saturday ~
-                      <strong class="d-inline"> 10:00 AM - 10:00 PM </strong>
-                    </p>
-
-                    <p>Sunday ~ Closed</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="shop-section section-padding" id="section_3">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-12">
-              <small class="section-small-title"
-                >PErfect sloution Design Shop</small
-              >
-
-              <h2 class="mt-2 mb-4">
-                <span class="tooplate-red">Interior</span> Products
-              </h2>
-            </div>
-
-            <div class="col-lg-12 col-12">
-              <div class="containerSlider">
-                <div class="slider-wrapper">
-                  <button
-                    id="prev-slide"
-                    class="slide-button material-symbols-rounded"
-                  >
-                    chevron_left
-                  </button>
-                  <ul class="image-list">
-                    <style>
-                      .imagecontainer {
-                        position: relative;
-                        display: inline-block;
-                        margin: 5px; /* Optional: Add spacing between images */
-                        transition: transform 0.3s ease;
-                      }
-                      .imagecontainer:hover {
-                        transform: scale(1.1);
-                      }
-                      .serviceDetail {
-                        position: absolute;
-                        top: 90%; /* Adjust as needed */
-                        left: 50%; /* Adjust as needed */
-                        transform: translate(-50%, -50%); /* Center the text */
-                        background-color: rgba(
-                          0,
-                          0,
-                          0,
-                          0.3
-                        ); /* Slightly transparent background */
-                        color: white;
-                        padding: 7.5px;
-                        border-radius: 15px;
-                        z-index: 1000;
-                        text-align: center;
-                        backdrop-filter: blur(5px); /* Apply blur effect */
-                        -webkit-backdrop-filter: blur(5px); /* For Safari */
-                      }
-                      .image-item {
-                        display: block;
-                        width: 200px;
-                        height: 300px;
-                      }
-                    </style>
-                    {% for service in services%} {% if service.image %}
-                    <li class="imagecontainer">
-                      <a href="shop-detail.html/{{ service.id }}">
-                        <img
-                          class="image-item"
-                          src="{{ service.image.url }}"
-                          alt="{{ service.name }}"
-                        />
-                      </a>
-                      <div class="serviceDetail">{{ service.name }}</div>
-                    </li>
-                    {% endif %} {% endfor %}
-                  </ul>
-
-                  <button
-                    id="next-slide"
-                    class="slide-button material-symbols-rounded"
-                  >
-                    chevron_right
-                  </button>
-                </div>
-                <div class="slider-scrollbar">
-                  <div class="scrollbar-track">
-                    <div class="scrollbar-thumb"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="reviews-section section-padding pb-0" id="section_4">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-12">
-              <small class="section-small-title">Happy customers.</small>
-
-              <h2 class="mt-2 mb-4">Reviews</h2>
-
-              <div class="owl-carousel reviews-carousel">
-                <div class="reviews-thumb">
-                  <div class="reviews-body">
-                    <h4>Perfect solution website layout.</h4>
-                  </div>
-
-                  <div
-                    class="reviews-bottom reviews-bottom-up d-flex align-items-center"
-                  >
-                    <img
-                      src="{% static 'images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg' %}"
-                      class="avatar-image img-fluid"
-                      alt=""
-                    />
-
-                    <div
-                      class="d-flex align-items-center justify-content-between flex-wrap w-100 ms-3"
-                    >
-                      <p class="text-white mb-0">
-                        <strong>Sandy</strong>, <small>CEO</small>
-                      </p>
-
-                      <div class="reviews-icons">
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="reviews-thumb">
-                  <div class="reviews-body">
-                    <h4>
-                      Explore more HTML Templates to download for your website.
-                    </h4>
-                  </div>
-
-                  <div
-                    class="reviews-bottom reviews-bottom-up d-flex align-items-center"
-                  >
-                    <img
-                      src="{% static 'images/avatar/studio-portrait-emotional-happy-funny-smiling-boyfriend-man-with-heavy-beard-stands-with-arms-crossed-dressed-red-t-shirt-isolated-blue.jpg' %}"
-                      class="avatar-image img-fluid"
-                      alt=""
-                    />
-
-                    <div
-                      class="d-flex align-items-center justify-content-between flex-wrap w-100 ms-3"
-                    >
-                      <p class="text-white mb-0">
-                        <strong>Jack</strong>, <small>Partner</small>
-                      </p>
-
-                      <div class="reviews-icons">
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star"></i>
-                        <i class="bi-star"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="reviews-thumb">
-                  <div class="reviews-body">
-                    <h4>Please recommend Tooplate website to your friends.</h4>
-                  </div>
-
-                  <div
-                    class="reviews-bottom reviews-bottom-up d-flex align-items-center"
-                  >
-                    <img
-                      src="{% static 'images/avatar/portrait-beautiful-young-woman-standing-grey-wall.jpg' %}"
-                      class="avatar-image img-fluid"
-                      alt=""
-                    />
-
-                    <div
-                      class="d-flex align-items-center justify-content-between flex-wrap w-100 ms-3"
-                    >
-                      <p class="text-white mb-0">
-                        <strong>Helen</strong>, <small>Client</small>
-                      </p>
-
-                      <div class="reviews-icons">
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="reviews-thumb">
-                  <div class="reviews-body">
-                    <h4>
-                      This Bootstrap 5 layout is free to use for your website.
-                    </h4>
-                  </div>
-
-                  <div
-                    class="reviews-bottom reviews-bottom-up d-flex align-items-center"
-                  >
-                    <img
-                      src="{% static 'images/avatar/portrait-young-redhead-bearded-male-wears-white-t-shirt-keeps-his-eyes-closed-smiling-feels-happy-yellow.jpg' %}"
-                      class="avatar-image img-fluid"
-                      alt=""
-                    />
-
-                    <div
-                      class="d-flex align-items-center justify-content-between flex-wrap w-100 ms-3"
-                    >
-                      <p class="text-white mb-0">
-                        <strong>Bill</strong>, <small>Designer</small>
-                      </p>
-
-                      <div class="reviews-icons">
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star"></i>
-                        <i class="bi-star"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="reviews-thumb">
-                  <div class="reviews-body">
-                    <h4>
-                      Thank you for visiting Tooplate to download free
-                      templates.
-                    </h4>
-                  </div>
-
-                  <div
-                    class="reviews-bottom reviews-bottom-up d-flex align-items-center"
-                  >
-                    <img
-                      src="{% static 'images/avatar/portrait-young-beautiful-woman-gesticulating.jpg' %}"
-                      class="avatar-image img-fluid"
-                      alt=""
-                    />
-
-                    <div
-                      class="d-flex align-items-center justify-content-between flex-wrap w-100 ms-3"
-                    >
-                      <p class="text-white mb-0">
-                        <strong>Susan</strong>, <small>Boss</small>
-                      </p>
-
-                      <div class="reviews-icons">
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                        <i class="bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-12 col-12">
-                <p
-                  class="d-flex justify-content-center align-items-center mt-lg-5"
-                >
-                  Write some reviews on
-                  <a href="#" class="custom-btn btn ms-3"
-                    ><i class="bi-facebook me-2"></i>facebook</a
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-section" id="section_5">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill="#f9f9f9"
-            fill-opacity="1"
-            d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,149.3C560,139,640,149,720,176C800,203,880,245,960,250.7C1040,256,1120,224,1200,229.3C1280,235,1360,277,1400,298.7L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
-          ></path>
-        </svg>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-12">
-              <small class="section-small-title">Ask anything.</small>
-
-              <h2 class="mb-4">Say Hello</h2>
-            </div>
-
-            <div class="col-lg-6 col-12">
-              <form
-                class="custom-form contact-form"
-                action="#"
-                method="post"
-                role="form"
-              >
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-12">
-                    <div class="input-group align-items-center">
-                      <label for="first-name">First Name</label>
-
-                      <input
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        class="form-control"
-                        placeholder="Jack"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 col-12">
-                    <div class="input-group align-items-center">
-                      <label for="last-name">Last Name</label>
-
-                      <input
-                        type="text"
-                        name="last-name"
-                        id="last-name"
-                        class="form-control"
-                        placeholder="Doe"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="input-group align-items-center">
-                  <label for="email">Email Address</label>
-
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    pattern="[^ @]@[^ @]"
-                    class="form-control"
-                    placeholder="Jackdoe@gmail.com"
-                    required
-                  />
-                </div>
-
-                <div class="input-group textarea-group">
-                  <label for="message">Message</label>
-
-                  <textarea
-                    name="message"
-                    rows="6"
-                    class="form-control"
-                    id="message"
-                    placeholder="What can we help you?"
-                  ></textarea>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                  <button type="submit" class="form-control">Send</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="col-lg-6 col-12 mt-5 mt-lg-0">
-              <div class="custom-block">
-                <h3 class="text-white mb-2">Store</h3>
-
-                <p class="text-white mb-2">
-                  <i class="contact-icon bi-geo-alt me-1"></i>
-
-                  102 Utah Road, Berlin, Germany
-                </p>
-
-                <h3 class="text-white mt-3 mb-2">Contact Info</h3>
-
-                <div class="d-flex flex-wrap">
-                  <p class="text-white mb-2 me-4">
-                    <i class="contact-icon bi-telephone me-1"></i>
-
-                    <a href="tel: 090-080-0760" class="text-white">
-                      090-080-0760
-                    </a>
-                  </p>
-
-                  <p class="text-white">
-                    <i class="contact-icon bi-envelope me-1"></i>
-
-                    <a href="mailto:info@company.com" class="text-white">
-                      info@company.com
-                    </a>
-                  </p>
-                </div>
-
-                <iframe
-                  class="google-map mt-2"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4800.184803804974!2d-0.10174304922518053!3d51.5087879746898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487605f6fc62fa3d%3A0xc5a39e7cf4e3a9a4!2sTate%20Modern%20Garden!5e1!3m2!1sen!2smm!4v1679331839559!5m2!1sen!2smm"
-                  width="100%"
-                  height="220"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#36363e"
-          fill-opacity="1"
-          d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,149.3C560,139,640,149,720,176C800,203,880,245,960,250.7C1040,256,1120,224,1200,229.3C1280,235,1360,277,1400,298.7L1440,320L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-        ></path>
-      </svg>
-    </main>
-
-    <footer class="site-footer section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-5 col-12 mb-3">
-            <h3>
-              <a href="index.html" class="custom-link mb-1">Perfect Solution</a>
-            </h3>
-
-            <p class="text-white">
-              Since 1986, We crafted interior products for better spaces
-            </p>
-
-            <p class="text-white">
-              <a href="https://www.tooplate.com" target="_parent"
-                >Web Design: Tooplate</a
-              >
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-3 col-12 ms-lg-auto mb-3">
-            <h3 class="text-white mb-3">Store</h3>
-
-            <p class="text-white mt-2">
-              <i class="bi-geo-alt"></i>
-              Berlin, Germany
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-12 mb-3">
-            <h3 class="text-white mb-3">Contact Info</h3>
-
-            <p class="text-white mb-1">
-              <i class="bi-telephone me-1"></i>
-
-              <a href="tel: 090-080-0760" class="text-white"> 090-080-0760 </a>
-            </p>
-
-            <p class="text-white mb-0">
-              <i class="bi-envelope me-1"></i>
-
-              <a href="mailto:info@company.com" class="text-white">
-                info@company.com
-              </a>
-            </p>
-          </div>
-
-          <div
-            class="col-lg-6 col-md-7 copyright-text-wrap col-12 d-flex flex-wrap align-items-center mt-4 ms-auto"
-          >
-            <p class="copyright-text mb-0 me-4">Copyright © PErfect SOlution</p>
-
-            <ul class="social-icon">
-              <li class="social-icon-item">
-                <a
-                  href="#"
-                  class="social-icon-link social-icon-twitter bi-twitter"
-                ></a>
-              </li>
-
-              <li class="social-icon-item">
-                <a
-                  href="#"
-                  class="social-icon-link social-icon-facebook bi-facebook"
-                ></a>
-              </li>
-
-              <li class="social-icon-item">
-                <a
-                  href="#"
-                  class="social-icon-link social-icon-instagram bi-instagram"
-                ></a>
-              </li>
-
-              <li class="social-icon-item">
-                <a
-                  href="#"
-                  class="social-icon-link social-icon-pinterest bi-pinterest"
-                ></a>
-              </li>
-
-              <li class="social-icon-item">
-                <a
-                  href="#"
-                  class="social-icon-link social-icon-whatsapp bi-whatsapp"
-                ></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- JAVASCRIPT FILES -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/click-scroll.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-    <script src="{% static 'js/jquery.backstretch.min' %}"></script>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/backstretch.js' %}"></script>
-    <script src="{% static 'js/slider.js' %}"></script>
-    <script src="{% static 'js/homepageslider.js' %}"></script>
-    <script>
-      var slideIndex = 0;
-      showSlides();
-
-      function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none"; // Initially hide all slides
-          slides[i].classList.remove("fade-in"); // Remove fade-in class
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-          slideIndex = 1;
-        }
-        slides[slideIndex - 1].style.display = "block"; // Display the current slide
-        slides[slideIndex - 1].classList.add("fade-in"); // Add fade-in class for transition
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
-      }
-    </script>
-  </body>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+			<div class="container">
+				<a class="navbar-brand" href="{% url 'homepage' %}"
+					>Perfect <span class="tooplate-red">Solu</span
+					><span class="tooplate-green">tion</span></a
+				>
+
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link click-scroll" href="{% url 'homepage' %}"
+								>home</a
+							>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link click-scroll" href="#section_2">About</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link click-scroll" href="#section_4">Service</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link click-scroll" href="#section_5">Review</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link click-scroll" href="#section_5">Contact</a>
+						</li>
+						{% if user.is_authenticated %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+</li>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+</li>
+{% endif %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main>
+			{% comment %} image slider {% endcomment %}
+			<section class="main swiper mySwiper">
+				<div class="wrapper swiper-wrapper">
+					{% for img in slider %}
+					<div class="slide swiper-slide">
+						<img src="{{ img.image.url }}" alt="" class="image" />
+						<div class="image-data">
+							<span class="text-warning">Welcome to perfect solution</span>
+							<h2>Bringing Your Space to Life</h2>
+							<h2>with Expert Design and Services</h2>
+							<a href="#" class="button">Explore our services</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				<div class="swiper-pagination"></div>
+			</section>
+			<section class="about-section section-padding" id="section_2">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-5 col-12">
+							<small class="section-small-title">Our Story</small>
+
+							<h2 class="mt-2 mb-4">
+								<span class="text-muted">Introducing</span> perfect solution
+							</h2>
+
+							<h4 class="text-muted mb-3">
+								Since 1986, We crafted interior products for better spaces
+							</h4>
+							<p>
+								Perfect sloution is a foo bar baz foo bar bazfoo bar bazfoo bar
+								bazfoo bar bazfoo bar baz
+							</p>
+						</div>
+
+						<div class="col-lg-3 col-md-5 col-5 mx-lg-auto">
+							<img
+								src="{% static 'Images/shop/sharing-design-ideas-with-family.jpg' %}"
+								class="about-image about-image-small img-fluid"
+								alt=""
+							/>
+						</div>
+
+						<div class="col-lg-4 col-md-7 col-7">
+							<img
+								src="{% static 'Images/shop/living-room-interior-wall-mockup-warm-tones-with-leather-sofa-which-is-kitchen-3d-rendering.jpg' %}"
+								class="about-image img-fluid"
+								alt=""
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{% comment %} end slider {% endcomment %}
+
+			<section class="featured-section section-padding">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-5 col-12">
+							<div class="custom-block featured-custom-block">
+								<h2 class="mt-2 mb-4">Opening Hours</h2>
+
+								<div class="d-flex">
+									<i class="featured-icon bi-clock me-3"></i>
+
+									<div>
+										<p class="mb-2">
+											Mon - Friday ~
+											<strong class="d-inline"> 8:00 AM - 6:00 PM </strong>
+										</p>
+
+										<p class="mb-2">
+											Saturday ~
+											<strong class="d-inline"> 10:00 AM - 10:00 PM </strong>
+										</p>
+
+										<p>Sunday ~ Closed</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="shop-section section-padding" id="section_3">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-12">
+							<small class="section-small-title"
+								>Perfect solution Design Shop</small
+							>
+
+							<h2 class="mt-2 mb-4">
+								<span class="tooplate-red">Our</span> Services
+							</h2>
+						</div>
+
+						<div class="col-lg-12 col-12">
+							<div class="containerSlider">
+								<div class="slider-wrapper">
+									<button
+										id="prev-slide"
+										class="slide-button material-symbols-rounded"
+									>
+										chevron_left
+									</button>
+									<ul class="image-list">
+										<style>
+											.imagecontainer {
+												position: relative;
+												display: inline-block;
+												margin: 5px; /* Optional: Add spacing between images */
+												transition: transform 0.3s ease;
+											}
+											.imagecontainer:hover {
+												transform: scale(1.1);
+											}
+											.serviceDetail {
+												position: absolute;
+												top: 88%; /* Adjust as needed */
+												left: 50%; /* Adjust as needed */
+												transform: translate(-50%, -50%); /* Center the text */
+												background-color: rgba(
+													0,
+													0,
+													0,
+													0.3
+												); /* Slightly transparent background */
+												color: white;
+												padding: 7.5px;
+												border-radius: 15px;
+												z-index: 1000;
+												text-align: center;
+												backdrop-filter: blur(5px); /* Apply blur effect */
+												-webkit-backdrop-filter: blur(5px); /* For Safari */
+											}
+											.image-item {
+												display: block;
+												width: 200px;
+												height: 300px;
+											}
+										</style>
+										{% for service in services%} {% if service.image %}
+										<li class="imagecontainer">
+											<a href="{% url 'shopdetail' service.id %}">
+												<img
+													class="image-item"
+													src="{{ service.image.url }}"
+													alt="{{ service.name }}"
+												/>
+											</a>
+											<div class="serviceDetail">{{ service.name }}</div>
+										</li>
+										{% endif %} {% endfor %}
+									</ul>
+
+									<button
+										id="next-slide"
+										class="slide-button material-symbols-rounded"
+									>
+										chevron_right
+									</button>
+								</div>
+								<div class="slider-scrollbar">
+									<div class="scrollbar-track">
+										<div class="scrollbar-thumb"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--reviewstart -->
+
+			<div class="reviews-section section-padding">
+				<h2>Customer Reviews</h2>
+				<div class="reviews-container">
+					{% for review in reviews %}
+					<div class="review-card">
+						<div class="review-header">
+							<h3>{{ review.user_name }}</h3>
+							<div class="stars">
+								{% for i in 1..5 %} {% if review.rating >= i %}
+								<span>★</span>
+								{% else %}
+								<span>☆</span>
+								{% endif %} {% endfor %}
+							</div>
+						</div>
+						<p class="review-text">{{ review.review_text }}</p>
+						<small>{{ review.created_at }}</small>
+					</div>
+					{% endfor %}
+					<div class="review-card">
+						<div class="review-header">
+							<h3>John Doe</h3>
+							<span class="stars">
+								&#9733;&#9733;&#9733;&#9733;&#9734;
+								<!-- 4 out of 5 stars -->
+							</span>
+							<div class="options-btn">
+								<span class="three-dots">⋮</span>
+								<!-- Popup for options -->
+								<div class="options-popup">
+									<a href="#" class="edit-option">Edit</a>
+									<a href="#" class="delete-option">Delete</a>
+								</div>
+							</div>
+						</div>
+						<p class="review-text">
+							"The service was excellent! I had a fantastic experience with the
+							interior designing team. Highly recommend!"
+						</p>
+					</div>
+				</div>
+
+				<button id="add-review-btn" class="btn btn-primary">Add Review</button>
+			</div>
+
+			<!-- Review  Modal -->
+			<div id="review-modal" class="modal" style="display: none">
+				<div class="modal-content">
+					<!-- Review Form -->
+					<form id="review-form" method="post">
+						{% csrf_token %}
+						<div class="form-group">
+							<label for="id_user_name">Name</label>
+							<input
+								type="text"
+								name="user_name"
+								id="id_user_name"
+								class="form-control"
+								required
+							/>
+						</div>
+
+						<div class="form-group">
+							<label for="id_review_text">Review</label>
+							<textarea
+								name="review_text"
+								id="id_review_text"
+								class="form-control"
+								required
+							></textarea>
+						</div>
+
+						<div class="form-group">
+							<label for="id_rating">Rating</label>
+							<input
+								type="range"
+								name="rating"
+								id="id_rating"
+								min="0"
+								max="5"
+								step="0.5"
+								value="0"
+								class="form-control"
+							/>
+						</div>
+
+						<div style="display: flex; justify-content: space-evenly">
+							<button type="submit" class="btn btn-primary">
+								Submit Review
+							</button>
+							<button
+								id="close-modal"
+								class="close-modal-btn btn btn-danger"
+								style="background-color: red"
+							>
+								Close
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- The Overlay -->
+			<div id="overlay" class="overlay" style="display: none"></div>
+
+			{% comment %} end review {% endcomment %}
+
+			<section class="contact-section" id="section_5">
+				{% comment %}
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+					{% endcomment %}
+					<path
+						fill="#f9f9f9"
+						fill-opacity="1"
+						d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,149.3C560,139,640,149,720,176C800,203,880,245,960,250.7C1040,256,1120,224,1200,229.3C1280,235,1360,277,1400,298.7L1440,320L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+					></path>
+				</svg>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-12">
+							<small class="section-small-title">Ask anything.</small>
+
+							<h2 class="mb-4">Say Hello</h2>
+						</div>
+
+						<div class="col-lg-6 col-12">
+							<form
+								class="custom-form contact-form"
+								action="#"
+								method="post"
+								role="form"
+							>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="input-group align-items-center">
+											<label for="first-name">First Name</label>
+
+											<input
+												type="text"
+												name="first-name"
+												id="first-name"
+												class="form-control"
+												placeholder="Jack"
+												required
+											/>
+										</div>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="input-group align-items-center">
+											<label for="last-name">Last Name</label>
+
+											<input
+												type="text"
+												name="last-name"
+												id="last-name"
+												class="form-control"
+												placeholder="Doe"
+												required
+											/>
+										</div>
+									</div>
+								</div>
+
+								<div class="input-group align-items-center">
+									<label for="email">Email Address</label>
+
+									<input
+										type="email"
+										name="email"
+										id="email"
+										pattern="[^ @]@[^ @]"
+										class="form-control"
+										placeholder="Jackdoe@gmail.com"
+										required
+									/>
+								</div>
+
+								<div class="input-group textarea-group">
+									<label for="message">Message</label>
+
+									<textarea
+										name="message"
+										rows="6"
+										class="form-control"
+										id="message"
+										placeholder="What can we help you?"
+									></textarea>
+								</div>
+
+								<div class="col-lg-3 col-md-4 col-6">
+									<button type="submit" class="form-control">Send</button>
+								</div>
+							</form>
+						</div>
+
+						<div class="col-lg-6 col-12 mt-5 mt-lg-0">
+							<div class="custom-block">
+								<h3 class="text-white mb-2">Store</h3>
+
+								<p class="text-white mb-2">
+									<i class="contact-icon bi-geo-alt me-1"></i>
+
+									102 Utah Road, Berlin, Germany
+								</p>
+
+								<h3 class="text-white mt-3 mb-2">Contact Info</h3>
+
+								<div class="d-flex flex-wrap">
+									<p class="text-white mb-2 me-4">
+										<i class="contact-icon bi-telephone me-1"></i>
+
+										<a href="tel: 090-080-0760" class="text-white">
+											090-080-0760
+										</a>
+									</p>
+
+									<p class="text-white">
+										<i class="contact-icon bi-envelope me-1"></i>
+
+										<a href="mailto:info@company.com" class="text-white">
+											info@company.com
+										</a>
+									</p>
+								</div>
+
+								<iframe
+									class="google-map mt-2"
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4800.184803804974!2d-0.10174304922518053!3d51.5087879746898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487605f6fc62fa3d%3A0xc5a39e7cf4e3a9a4!2sTate%20Modern%20Garden!5e1!3m2!1sen!2smm!4v1679331839559!5m2!1sen!2smm"
+									width="100%"
+									height="220"
+									style="border: 0"
+									allowfullscreen=""
+									loading="lazy"
+								></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+				<path
+					fill="#36363e"
+					fill-opacity="1"
+					d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,149.3C560,139,640,149,720,176C800,203,880,245,960,250.7C1040,256,1120,224,1200,229.3C1280,235,1360,277,1400,298.7L1440,320L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+				></path>
+			</svg>
+		</main>
+
+		<footer class="site-footer section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-5 col-12 mb-3">
+						<h3>
+							<a href="index.html" class="custom-link mb-1"
+								>Perfect solution Interior</a
+							>
+						</h3>
+
+						<p class="text-white">
+							Since 1986, We crafted interior products for better spaces
+						</p>
+
+						<p class="text-white">
+							<a href="https://www.tooplate.com/free-templates" target="_parent"
+								>Web Design: Tooplate</a
+							>
+						</p>
+					</div>
+
+					<div class="col-lg-3 col-md-3 col-12 ms-lg-auto mb-3">
+						<h3 class="text-white mb-3">Store</h3>
+
+						<p class="text-white mt-2">
+							<i class="bi-geo-alt"></i>
+							Berlin, Germany
+						</p>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-12 mb-3">
+						<h3 class="text-white mb-3">Contact Info</h3>
+
+						<p class="text-white mb-1">
+							<i class="bi-telephone me-1"></i>
+
+							<a href="tel: 090-080-0760" class="text-white"> 090-080-0760 </a>
+						</p>
+
+						<p class="text-white mb-0">
+							<i class="bi-envelope me-1"></i>
+
+							<a href="mailto:info@company.com" class="text-white">
+								info@company.com
+							</a>
+						</p>
+					</div>
+
+					<div
+						class="col-lg-6 col-md-7 copyright-text-wrap col-12 d-flex flex-wrap align-items-center mt-4 ms-auto"
+					>
+						<p class="copyright-text mb-0 me-4">Copyright © PErfect solution</p>
+
+						<ul class="social-icon">
+							<li class="social-icon-item">
+								<a
+									href="#"
+									class="social-icon-link social-icon-twitter bi-twitter"
+								></a>
+							</li>
+
+							<li class="social-icon-item">
+								<a
+									href="#"
+									class="social-icon-link social-icon-facebook bi-facebook"
+								></a>
+							</li>
+
+							<li class="social-icon-item">
+								<a
+									href="#"
+									class="social-icon-link social-icon-instagram bi-instagram"
+								></a>
+							</li>
+
+							<li class="social-icon-item">
+								<a
+									href="#"
+									class="social-icon-link social-icon-pinterest bi-pinterest"
+								></a>
+							</li>
+
+							<li class="social-icon-item">
+								<a
+									href="#"
+									class="social-icon-link social-icon-whatsapp bi-whatsapp"
+								></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- JAVASCRIPT FILES -->
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/click-scroll.js' %}"></script>
+		<script src="{% static 'js/custom.js' %}"></script>
+		<script src="{% static 'js/jquery.backstretch.min' %}"></script>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/backstretch.js' %}"></script>
+		<script src="{% static 'js/slider.js' %}"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				// Show the review modal
+				$("#add-review-btn").on("click", function () {
+					$("#review-modal").fadeIn();
+					$("#overlay").fadeIn();
+				});
+
+				// Close the modal
+				$("#close-modal").on("click", function () {
+					$("#review-modal").fadeOut();
+					$("#overlay").fadeOut();
+				});
+
+				// AJAX form submission
+				$("#review-form").on("submit", function (e) {
+					e.preventDefault();
+					$.ajax({
+						url: "{% url 'add_review' %}", // Make sure this URL matches your Django view
+						method: "POST",
+						data: $(this).serialize(), // Serializes form data for sending
+						success: function (response) {
+							if (response.status === "success") {
+								alert("Review added successfully!");
+								location.reload(); // Reload the page to display the new review
+							} else {
+								alert("Error: " + JSON.stringify(response.errors));
+							}
+						},
+						error: function () {
+							alert("There was an error submitting the review.");
+						},
+					});
+				});
+			});
+		</script>
+
+		<script>
+			var swiper = new Swiper(".mySwiper", {
+				slidesPerView: 1,
+				loop: true,
+				autoplay: {
+					delay: 4000, // 3 seconds
+					disableOnInteraction: false, // Continue autoplay even after user interaction
+				},
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+			});
+
+			// Select all elements with the class 'options-btn'
+			const optionsBtns = document.querySelectorAll(".options-btn");
+
+			// Function to toggle the popup menu visibility on clicking the triple dots
+			document.querySelectorAll(".three-dots").forEach(function (dotsBtn) {
+				dotsBtn.addEventListener("click", function (e) {
+					e.stopPropagation(); // Prevent immediate closure of the popup
+
+					// Close any other open popups
+					document.querySelectorAll(".options-popup").forEach(function (popup) {
+						popup.style.display = "none";
+					});
+
+					// Show the clicked popup
+					const popup = this.nextElementSibling;
+					popup.style.display =
+						popup.style.display === "block" ? "none" : "block";
+				});
+			});
+
+			// Close the popup when clicking outside of it
+			window.addEventListener("click", function (e) {
+				if (
+					!e.target.closest(".three-dots") &&
+					!e.target.closest(".options-popup")
+				) {
+					document.querySelectorAll(".options-popup").forEach(function (popup) {
+						popup.style.display = "none";
+					});
+				}
+			});
+		</script>
+	</body>
 </html>

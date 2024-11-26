@@ -12179,4 +12179,71 @@ fieldset:disabled .btn {
     }
 }
 
+.container-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-button button {
+    background-color: red;
+    height: 45px;
+    width: 150px;
+    border-style: none;
+    transition: all 0.3s ease-in-out;
+    color: white;
+}
+
+.container-button button:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 4px grey;
+    color: white;
+}
+
+.container-button button a {
+    font-weight: bold;
+    padding: 10px;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container-button {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-button button {
+        width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-button {
+        justify-content: center;
+    }
+
+    .container-button button {
+        margin-left: 0;
+
+        width: 130px;
+
+    }
+}
+
 /*# sourceMappingURL=bootstrap.min.css.map */

@@ -1,0 +1,60 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_filters %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+    <h1>{% trans "Sign In" %}</h1>
+
+    {% get_providers as socialaccount_providers %}
+
+    {% if socialaccount_providers %}
+    <p>
+        {% blocktrans with site.name as site_name %}
+        Please sign in with one of your existing third-party accounts.<br>
+        {% endblocktrans %}
+    </p>
+
+    <div class="socialaccount_ballot">
+
+        <div class="socialaccount_providers">
+            {% for provider in socialaccount_providers %}
+            {% if provider.id == "google" %}
+            <!-- Button for Google Login -->
+            <a href="{% provider_login_url provider.id process="login" %}" class="btn btn-primary btn-block mb-3" style="background-color: #db4437; border-color: #db4437;">
+                <i class="fab fa-google"></i> Sign in with Google
+            </a>
+            {% else %}
+            <!-- For other providers if necessary --> 
+            <a href="{% provider_login_url provider.id process="login" %}" class="btn btn-secondary btn-block mb-3">
+                Sign in with {{ provider.name }}
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% comment %} <div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <div class="d-grid">
+                <button class="primaryAction mt-3 btn btn-dark" type="submit">{% trans "Sign In" %}</button><br>
+                <a class="button secondaryAction text-dark text-center" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+            </div>
+        </form>
+    </div>
+</div> {% endcomment %}
+
+{% endblock %}
